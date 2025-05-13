@@ -54,7 +54,7 @@ public class TeamMemberRepository : ITeamMemberRepository
         {
             teamMember = new TeamMember
             {
-                Id = reader.GetInt32(0),
+                IdTeamMember = reader.GetInt32(0),
                 FirstName = reader.GetString(1),
                 LastName = reader.GetString(2),
                 Email = reader.GetString(3),
@@ -93,28 +93,10 @@ public class TeamMemberRepository : ITeamMemberRepository
             {
                 task = new Task
                 {
-                    Task = task,
-                    Trip = new Trip
-                    {
-                        Id = tripId,
-                        Name = reader.GetString(1),
-                        DateFrom = reader.GetDateTime(2),
-                        DateTo = reader.GetDateTime(3),
-                        Description = reader.GetString(4),
-                        MaxPeople = reader.GetInt32(5),
-                        Destinations = []
-                    },
-                    PaymentDate = reader.IsDBNull(6) ? null : reader.GetInt32(6),
-                    RegisteredAt = reader.GetInt32(7)
+                    
                 };
 
                 tripDictionary[tripId] = task;
-            }
-
-            var country = new Country { Id = countryId, Name = countryName };
-            if (task.Trip?.Destinations.All(c => c.Name != countryName) == true)
-            {
-                task.Trip.Destinations.Add(country);
             }
         }
 

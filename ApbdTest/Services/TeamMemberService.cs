@@ -20,6 +20,7 @@ public class TeamMemberService : ITeamMemberService
     public async Task<TeamMember?> GetTeamMemberByIdAsync(int teamMemberId, CancellationToken token = default)
         => await _teamMemberRepository.GetTeamMemberByIdAsync(teamMemberId, token);
 
-    public async Task<ICollection<Task>?> GetTeamMemberTasksAsync(int teamMemberId, CancellationToken cancellationToken)
-    => await _teamMemberRepository.
+    public async Task<ICollection<Task>?> GetTeamMemberTasksAsync(int teamMemberId,
+        CancellationToken cancellationToken = default)
+        => await _teamMemberRepository.GetTeamMemberTasksAsync(teamMemberId, cancellationToken);
 }

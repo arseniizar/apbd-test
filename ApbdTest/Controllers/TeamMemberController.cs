@@ -15,7 +15,10 @@ public class TeamMemberController
         _teamMemberService = teamMemberService;
     }
 
-    public TeamMember GetTeamMemberById (String id) {
-        
-    }
+    // public TeamMember GetTeamMemberById (String id) {
+    //     if (_teamMemberService(id))
+    //     {
+    //         
+    //     }
+    // }
 }
